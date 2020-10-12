@@ -1,1 +1,3 @@
-Lesson 26
+https://coursehunter.net/course/nodejs-v2-udemy
+Lesson: 6
+Notes:
