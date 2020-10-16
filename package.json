@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlexKovalchuk/NodeJsCourse/issues"
   },
-  "homepage": "https://github.com/AlexKovalchuk/NodeJsCourse#readme"
+  "homepage": "https://github.com/AlexKovalchuk/NodeJsCourse#readme",
+  "dependencies": {
+    "validator": "^13.1.17"
+  }
 }
