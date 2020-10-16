@@ -1,0 +1,19 @@
+{
+  "name": "nodejscourse",
+  "version": "1.0.0",
+  "description": "https://coursehunter.net/course/nodejs-v2-udemy\r Lesson: 8\r Notes:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKovalchuk/NodeJsCourse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKovalchuk/NodeJsCourse/issues"
+  },
+  "homepage": "https://github.com/AlexKovalchuk/NodeJsCourse#readme"
+}
