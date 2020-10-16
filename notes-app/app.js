@@ -1,5 +1,9 @@
-const fs = require('fs');
+const {getNotes} = require('./notes');
 
-// fs.writeFileSync('note.txt', 'My name is Alex')
+console.log(getNotes());
 
-fs.appendFileSync('./note.txt', ' You are the champion and Senior developer.')
+
+
+// const {name, add} = require('./utils')
+// console.log('Hello',name)
+// console.log('5 + 7 =', add(5,7))
