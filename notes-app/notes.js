@@ -1,64 +1,75 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
+
+const readNote = title => {
+    const notes = loadNotes();
+    findedNote = notes.find(note => note.title === title);
+    if(findedNote) {
+        const {title, body} = findedNote;
+        printColorText(true, `Title: ${title}`); 
+        printColorText(true, `Body ${body}`);
+    } else {
+        printColorText(false, 'ERROR no note found.')
+    }
+}
+
+const listNotes = () => {
+    const notes = loadNotes();
+    printColorText(true, 'Notes title:');
+    notes.forEach(note => {
+        printColorText(true, note.title);
+    })
+}
+
 const removeNote = title => {
     const notes = loadNotes();
     const notesAfterRomoving = notes.filter(note => note.title !== title);
     if(notes.length !== notesAfterRomoving.length) {
         saveNotes(notesAfterRomoving);
-        // console.log(chalk.bgGreen(`Removed note ${title}`))
         printColorText(true, `Removed note ${title}`);
     } else {
-        // console.log(chalk.bgRed(`Note ${title} is not found`))
         printColorText(false, `Note ${title} is not found`);
     }
 }
 
-const addNote = function(title, body) {
+const addNote = (title, body) => {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(note => {
-        return note.title === title;
-    });
+    const duplicateNote = notes.find(note => note.title === title);
 
-    if(!duplicateNotes.length){
+    if(!duplicateNote){
         notes.push({
             title,
             body
         })
         saveNotes(notes);
-        // console.log('New note added!')
         printColorText(true, 'New note added!')
     } else {
-        // console.log('Note title taken!');
         printColorText(false, 'Note title taken!');
     }
 
 }
 
-const getNotes = () => {
-    return loadNotes();
-}
-
-const saveNotes = function(notes) {
+const saveNotes = notes => {
     fs.writeFileSync('./notes.json', JSON.stringify(notes));
 }
 
-const loadNotes = function() {
+const loadNotes = () => {
     try{
         return JSON.parse(fs.readFileSync('./notes.json', 'utf-8'));
     } catch(e) {
         return [];
     }
-    
 }
 
 const printColorText = (isSuccess, textForPrint) => {
-    const colorText = isSuccess ? chalk.bgGreen(textForPrint) : chalk.bgRed(textForPrint);
+    const colorText = isSuccess ? chalk.green(textForPrint) : chalk.red(textForPrint);
     console.log(colorText);
 }
 
 module.exports = {
-    getNotes,
     addNote,
-    removeNote
+    removeNote,
+    listNotes,
+    readNote
 }
