@@ -17,6 +17,24 @@ request({url: url, json: true}, (error, response) => {
   const {body} = response;
   const {current} = body
   const {feelslike, temperature} = current
-  console.log('Body', body)
   console.log(`It is currently ${temperature} degress out. It feels like ${feelslike} degress out.`)
+});
+
+// Geocoding
+// Adress -> lat/long -> Weather
+const mapbox_url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Kyiv.json?'
+const mapbox_token = 'access_token=pk.eyJ1IjoiYWxlemFuZGVya292YWxjaHVrIiwiYSI6ImNrNWNlZzFjbjBsbGYzbW5xNnBhOGplb3AifQ.TQqrpm2lLCIYrd3rPIpmew';
+const limit = 'limit=1';
+const mapbox = `${mapbox_url}${mapbox_token}&${limit}`
+request({url: mapbox, json: true}, (error, response) => {
+  if(error) {
+    console.log('Error')
+    return null;
+  }
+
+  const {features} = response.body;
+  const {center, geometry} = features[0];
+  const latitude = center[1]
+  const longtitude = center[0]
+  console.log(`Latitude: ${latitude} and longtitude: ${longtitude}`)
 });
