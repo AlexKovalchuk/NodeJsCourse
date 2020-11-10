@@ -44,10 +44,22 @@ app.get('/weather', (req, res) => {
   })
 })
 
+app.get('/help/*', (req, res) => {
+  res.render('404_page', {
+    title: '404',
+    name: 'Oleks Kovalchuk',
+    ErrorMessage: 'Eror 404. Help article not found.'
+  });
+})
 
 app.get('*', (req, res) => {
-  res.send('404 Page Not Found');
+  res.render('404_page', {
+    title: '404',
+    name: 'Oleks Kovalchuk',
+    ErrorMessage: 'Eror 404. Page not found.'
+  });
 })
+
 
 app.listen('3000', () => {
   console.log('Server running on port 3000')
