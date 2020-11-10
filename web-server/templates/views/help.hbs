@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/styles.css">
   <title>{{title}}</title>
-  <script src="./js/app.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+  {{>header}}
+  <div>{{helpText}}</div>
 
-  <h1>{{title}}</h1>
-  <p>
-    Created by {{name}}
-    <img src="./img/me.jpg" alt="">
-  </p>
-  
-  
+  {{>footer}}
 </body>
 </html>
