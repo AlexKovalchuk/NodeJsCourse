@@ -7,20 +7,27 @@ const app = express()
 app.set('view engine', 'hbs')
 app.use(express.static(publicDirectoryPath));
 
-app.get('', (req,res) => {
+app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather App',
     name: 'Oleks Kovalchuk'
   })
 });
 
-app.get('/about', (req,res) => {
+app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About Page',
-    name: 'Oleks Kovalchuk'
+    name: 'Oleks Kovalchuk',
   })
 });
 
+app.get('/help', (req, res) => {
+  res.render('help', {
+    title: 'Help Page',
+    name: 'Oleks Kovalchuk',
+    helpText: 'Call me when you need help!'
+  })
+});
 
 app.get('/weather', (req, res) => {
   res.send({
