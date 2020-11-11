@@ -1,0 +1,30 @@
+{
+  "name": "nodejscourse",
+  "version": "1.0.0",
+  "description": "learning http",
+  "main": "express.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "hbs": "^4.1.1",
+    "postman-request": "^2.88.1-postman.27",
+    "request": "^2.88.2",
+    "validator": "^13.1.17",
+    "yargs": "^16.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKovalchuk/NodeJsCourse.git"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKovalchuk/NodeJsCourse/issues"
+  },
+  "homepage": "https://github.com/AlexKovalchuk/NodeJsCourse#readme"
+}
